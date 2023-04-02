@@ -5,6 +5,8 @@ const morgan = require('morgan')
 const app = express()
 const handlebars = require('express-handlebars')
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 //HTTP Logger
 app.use(morgan('combined'))
 
