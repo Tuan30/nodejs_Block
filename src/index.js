@@ -4,8 +4,11 @@ const port = 3000
 const morgan = require('morgan')
 const app = express()
 const handlebars = require('express-handlebars')
-
 const route = require('./routes')
+const db = require('./config/db')
+
+//connect to DB
+db.connect()
 
 app.use(express.urlencoded({
     extended: true
@@ -26,5 +29,5 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`${port}`)
 })
